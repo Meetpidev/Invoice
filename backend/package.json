@@ -1,5 +1,5 @@
 {
-  "name": "invoice-backend",
+  "name": "easyinvoice-backend",
   "version": "1.0.0",
   "description": "Invoice System Backend",
   "main": "server.js",

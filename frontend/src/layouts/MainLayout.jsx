@@ -43,7 +43,7 @@ const Sidebar = ({ isOpen, setIsOpen }) => {
                     <div className="flex items-center gap-3">
                         <div className="w-8 h-8 bg-indigo-600 rounded-lg flex items-center justify-center text-white font-bold">A</div>
                         <div>
-                            <h1 className="text-xl font-bold tracking-tight">Appifly</h1>
+                            <h1 className="text-xl font-bold tracking-tight">EasyInvoice</h1>
                             <p className="text-[10px] text-gray-400 uppercase tracking-wider">Invoice Manager</p>
                         </div>
                     </div>
@@ -102,7 +102,7 @@ const MainLayout = ({ children }) => {
                             <Menu size={24} />
                         </button>
                         <div className="w-8 h-8 bg-indigo-600 rounded-lg flex items-center justify-center text-white font-bold">A</div>
-                        <h1 className="text-xl font-bold tracking-tight text-gray-900">Appifly</h1>
+                        <h1 className="text-xl font-bold tracking-tight text-gray-900">EasyInvoice</h1>
                     </div>
                 </header>
 

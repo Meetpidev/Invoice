@@ -10,7 +10,7 @@ const LandingPage = () => {
                 <div className="container mx-auto px-6 py-4 flex justify-between items-center">
                     <div className="flex items-center gap-2">
                         <div className="w-8 h-8 bg-indigo-600 rounded-lg flex items-center justify-center text-white font-bold">A</div>
-                        <span className="text-xl font-bold tracking-tight">Appifly</span>
+                        <span className="text-xl font-bold tracking-tight">EasyInvoice</span>
                     </div>
 
                     <div className="hidden md:flex space-x-8 text-sm font-medium text-gray-500">
@@ -46,7 +46,7 @@ const LandingPage = () => {
                     </h1>
 
                     <p className="text-xl text-gray-500 max-w-2xl mx-auto mb-10 leading-relaxed">
-                        Appifly Invoice Management helps freelancers and businesses create stunning invoices, track payments, and get paid faster with smart automation.
+                        EasyInvoice Invoice Management helps freelancers and businesses create stunning invoices, track payments, and get paid faster with smart automation.
                     </p>
 
                     <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
@@ -68,7 +68,7 @@ const LandingPage = () => {
                     <div className="text-center max-w-3xl mx-auto mb-16">
                         <h2 className="text-indigo-600 font-bold tracking-wide uppercase text-sm mb-3">Built for Speed & Clarity</h2>
                         <h3 className="text-4xl font-extrabold text-gray-900 mb-6">Everything you need to run your business</h3>
-                        <p className="text-gray-500 text-lg">Stop wrestling with spreadsheets. Appifly Invoice Management handles the boring stuff so you can focus on work.</p>
+                        <p className="text-gray-500 text-lg">Stop wrestling with spreadsheets. EasyInvoice Invoice Management handles the boring stuff so you can focus on work.</p>
                     </div>
 
                     <div className="grid md:grid-cols-3 gap-8">
@@ -156,7 +156,7 @@ const LandingPage = () => {
                         <div className="mb-6 md:mb-0">
                             <div className="flex items-center gap-2 mb-2">
                                 <div className="w-6 h-6 bg-indigo-500 rounded flex items-center justify-center text-white font-bold text-xs">A</div>
-                                <span className="text-lg font-bold">Appifly</span>
+                                <span className="text-lg font-bold">EasyInvoice</span>
                             </div>
                             <p className="text-gray-400 text-sm">Next-gen invoicing for next-gen businesses.</p>
                         </div>
@@ -168,7 +168,7 @@ const LandingPage = () => {
                         </div>
                     </div>
                     <div className="mt-8 pt-8 border-t border-gray-800 text-center text-xs text-gray-600">
-                        © 2026 Appifly Inc. All rights reserved.
+                        © 2026 EasyInvoice Inc. All rights reserved.
                     </div>
                 </div>
             </footer>
