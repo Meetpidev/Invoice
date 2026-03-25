@@ -7,10 +7,13 @@ export default {
     theme: {
         extend: {
             colors: {
-                primary: '#4F46E5', // Indigo 600
-                secondary: '#6366F1', // Indigo 500
-                dark: '#111827', // Gray 900
-                light: '#F3F4F6', // Gray 100
+                primary: 'var(--primary, #4F46E5)',
+                'primary-dark': 'var(--primary-dark, #3730A3)',
+                'primary-light': 'var(--primary-light, #EEF2FF)',
+                ring: 'var(--primary-ring, #A5B4FC)',
+                accent: 'var(--accent, #7C3AED)',
+                dark: '#111827',
+                light: '#F3F4F6',
             }
         },
     },

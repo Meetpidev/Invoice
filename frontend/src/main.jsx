@@ -1,16 +1,20 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import App from './App.jsx'
-import './index.css'
-import { AuthProvider } from './context/AuthContext'
-import { BrowserRouter } from 'react-router-dom'
+// main.jsx  ← wrap your app root
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import { BrowserRouter } from 'react-router-dom';
+import { AuthProvider } from './context/AuthContext';
+import { ThemeProvider } from './components/ThemeSelector';  // ← NEW
+import App from './App';
+import './index.css';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <AuthProvider>
-      <BrowserRouter future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
-        <App />
-      </BrowserRouter>
-    </AuthProvider>
-  </React.StrictMode>,
-)
+    <BrowserRouter>
+      <AuthProvider>
+        <ThemeProvider>   {/* ← wraps entire app so CSS vars apply globally */}
+          <App />
+        </ThemeProvider>
+      </AuthProvider>
+    </BrowserRouter>
+  </React.StrictMode>
+);
