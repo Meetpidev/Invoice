@@ -1,9 +1,9 @@
-const mongoose = require('mongoose');
-const User = require('./src/models/User');
-const jwt = require('jsonwebtoken');
-const app = require('./src/app');
-const http = require('http');
-require('dotenv').config();
+import mongoose from 'mongoose';
+import User from './src/models/User.js';
+import jwt from 'jsonwebtoken';
+import app from './src/app.js';
+import http from 'http';
+import 'dotenv/config';
 
 const PORT = 54321; // Random port to avoid conflict
 

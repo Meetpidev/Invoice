@@ -1,5 +1,5 @@
-require('dotenv').config();
-const mongoose = require('mongoose');
+import 'dotenv/config';
+import mongoose from 'mongoose';
 
 const fixIndexes = async () => {
     try {
@@ -27,10 +27,10 @@ const fixIndexes = async () => {
         const newIndexes = await collection.indexes();
         console.log('Current Indexes:', newIndexes.map(i => i.name));
 
-        mongoose.connection.close();
     } catch (error) {
         console.error('Error:', error);
-        mongoose.connection.close();
+    } finally {
+        await mongoose.connection.close();
     }
 };
 

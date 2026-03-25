@@ -1,14 +1,15 @@
-const express = require('express');
+import express from 'express';
+import Invoice from '../models/Invoice.js';
+import Customer from '../models/Customer.js';
+import authMiddleware from '../middlewares/auth.middleware.js';
+import { generateInvoicePDF } from '../utils/pdfGenerator.js';
+
 const router = express.Router();
-const Invoice = require('../models/Invoice');
-const Customer = require('../models/Customer');
-const authMiddleware = require('../middlewares/auth.middleware');
 
 // Create Invoice
 router.post('/', authMiddleware, async (req, res) => {
     try {
         const invoiceData = req.body;
-        // Generate Invoice Number if not provided
         // Generate Invoice Number if not provided
         if (!invoiceData.invoiceNumber) {
             const lastInvoice = await Invoice.findOne({ userId: req.user.userId }).sort({ createdAt: -1 });
@@ -106,7 +107,6 @@ router.get('/:id/pdf', authMiddleware, async (req, res) => {
         res.setHeader('Content-Type', 'application/pdf');
         res.setHeader('Content-Disposition', `attachment; filename=invoice-${invoice.invoiceNumber}.pdf`);
 
-        const { generateInvoicePDF } = require('../utils/pdfGenerator');
         // Pass invoice and response object
         // We might need to fetch the business profile inside the generator or pass it here
         // The generator now handles fetching profile based on invoice.createdBy
@@ -117,4 +117,4 @@ router.get('/:id/pdf', authMiddleware, async (req, res) => {
     }
 });
 
-module.exports = router;
+export default router;

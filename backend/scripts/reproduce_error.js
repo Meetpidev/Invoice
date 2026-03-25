@@ -1,6 +1,6 @@
-require('dotenv').config();
-const mongoose = require('mongoose');
-const Invoice = require('../src/models/Invoice');
+import 'dotenv/config';
+import mongoose from 'mongoose';
+import Invoice from '../src/models/Invoice.js';
 
 const runDebug = async () => {
     try {

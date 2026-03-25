@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+import mongoose from 'mongoose';
 
 const PaymentSchema = new mongoose.Schema({
     userId: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
@@ -9,7 +9,7 @@ const PaymentSchema = new mongoose.Schema({
     currency: { type: String, default: 'INR' },
     status: { type: String, enum: ['created', 'captured', 'failed'], default: 'created' },
     planType: { type: String, enum: ['monthly', 'yearly'], required: true },
-    createdAt: { type: Date, default: Date.now }
+    createdAt: { type: String, default: () => new Date().toISOString() }
 });
 
-module.exports = mongoose.model('Payment', PaymentSchema);
+export default mongoose.model('Payment', PaymentSchema);

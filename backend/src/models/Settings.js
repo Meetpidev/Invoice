@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+import mongoose from 'mongoose';
 
 const SettingsSchema = new mongoose.Schema({
     companyName: { type: String, default: 'My Company' },
@@ -10,4 +10,4 @@ const SettingsSchema = new mongoose.Schema({
     currency: { type: String, default: 'USD' }
 }, { timestamps: true });
 
-module.exports = mongoose.model('Settings', SettingsSchema);
+export default mongoose.model('Settings', SettingsSchema);

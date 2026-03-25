@@ -1,12 +1,15 @@
-const express = require('express');
-const cors = require('cors');
-const helmet = require('helmet');
-const morgan = require('morgan');
+import express from 'express';
+import cors from 'cors';
+import helmet from 'helmet';
+import morgan from 'morgan';
 
-const authRoutes = require('./routes/auth.routes');
-const invoiceRoutes = require('./routes/invoice.routes');
-const customerRoutes = require('./routes/customer.routes');
-const productRoutes = require('./routes/product.routes');
+import authRoutes from './routes/auth.routes.js';
+import invoiceRoutes from './routes/invoice.routes.js';
+import customerRoutes from './routes/customer.routes.js';
+import productRoutes from './routes/product.routes.js';
+import dashboardRoutes from './routes/dashboard.routes.js';
+import businessRoutes from './routes/business.routes.js';
+import paymentRoutes from './routes/payment.routes.js';
 
 const app = express();
 
@@ -25,13 +28,13 @@ app.use('/api/auth', authRoutes);
 app.use('/api/invoices', invoiceRoutes);
 app.use('/api/customers', customerRoutes);
 app.use('/api/products', productRoutes);
-app.use('/api/dashboard', require('./routes/dashboard.routes'));
-app.use('/api/business', require('./routes/business.routes'));
-app.use('/api/payments', require('./routes/payment.routes'));
+app.use('/api/dashboard', dashboardRoutes);
+app.use('/api/business', businessRoutes);
+app.use('/api/payments', paymentRoutes);
 
 app.use((err, req, res, next) => {
     console.error(err.stack);
     res.status(500).json({ success: false, message: 'Internal Server Error', error: err.message });
 });
 
-module.exports = app;
+export default app;

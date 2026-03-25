@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+import mongoose from 'mongoose';
 
 const InvoiceItemSchema = new mongoose.Schema({
     productId: { type: mongoose.Schema.Types.ObjectId, ref: 'Product' },
@@ -10,6 +10,7 @@ const InvoiceItemSchema = new mongoose.Schema({
 
 const InvoiceSchema = new mongoose.Schema({
     invoiceNumber: { type: String, required: true }, // Uniqueness handled by compound index with userId
+    pnr: { type: String }, // Passenger Name Record for travel invoices
     customer: {
         name: String,
         email: String,
@@ -25,8 +26,8 @@ const InvoiceSchema = new mongoose.Schema({
     discountAmount: { type: Number, default: 0 },
     totalAmount: { type: Number, required: true },
     status: { type: String, enum: ['draft', 'pending', 'paid', 'overdue'], default: 'draft' },
-    dueDate: Date,
-    issueDate: { type: Date, default: Date.now },
+    dueDate: { type: String }, // Store as string (ISO format recommended)
+    issueDate: { type: String, default: () => new Date().toISOString() }, // Store as string
     notes: String,
     payments: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Payment' }],
     userId: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
@@ -36,4 +37,4 @@ const InvoiceSchema = new mongoose.Schema({
 // Compound index for unique invoice number per user
 InvoiceSchema.index({ userId: 1, invoiceNumber: 1 }, { unique: true });
 
-module.exports = mongoose.model('Invoice', InvoiceSchema);
+export default mongoose.model('Invoice', InvoiceSchema);

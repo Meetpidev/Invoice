@@ -1,7 +1,8 @@
-const express = require('express');
+import express from 'express';
+import BusinessProfile from '../models/BusinessProfile.js';
+import authMiddleware from '../middlewares/auth.middleware.js';
+
 const router = express.Router();
-const BusinessProfile = require('../models/BusinessProfile');
-const authMiddleware = require('../middlewares/auth.middleware');
 
 // Get Profile
 router.get('/', authMiddleware, async (req, res) => {
@@ -51,4 +52,4 @@ router.post('/', authMiddleware, async (req, res) => {
     }
 });
 
-module.exports = router;
+export default router;

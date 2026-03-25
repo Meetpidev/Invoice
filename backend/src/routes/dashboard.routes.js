@@ -1,10 +1,11 @@
-const express = require('express');
+import express from 'express';
+import mongoose from 'mongoose';
+import Invoice from '../models/Invoice.js';
+import Customer from '../models/Customer.js';
+import Product from '../models/Product.js';
+import authMiddleware from '../middlewares/auth.middleware.js';
+
 const router = express.Router();
-const Invoice = require('../models/Invoice');
-const Customer = require('../models/Customer');
-const Product = require('../models/Product');
-const authMiddleware = require('../middlewares/auth.middleware');
-const mongoose = require('mongoose');
 
 router.get('/stats', authMiddleware, async (req, res) => {
     try {
@@ -56,4 +57,4 @@ router.get('/stats', authMiddleware, async (req, res) => {
     }
 });
 
-module.exports = router;
+export default router;

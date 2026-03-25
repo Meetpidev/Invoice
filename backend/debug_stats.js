@@ -1,9 +1,9 @@
-const mongoose = require('mongoose');
-const Invoice = require('./src/models/Invoice');
-const Customer = require('./src/models/Customer');
-const Product = require('./src/models/Product');
-const User = require('./src/models/User'); // Assuming User model exists
-require('dotenv').config();
+import mongoose from 'mongoose';
+import Invoice from './src/models/Invoice.js';
+import Customer from './src/models/Customer.js';
+import Product from './src/models/Product.js';
+import User from './src/models/User.js';
+import 'dotenv/config';
 
 const run = async () => {
     try {

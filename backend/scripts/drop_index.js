@@ -1,5 +1,5 @@
-require('dotenv').config();
-const mongoose = require('mongoose');
+import 'dotenv/config';
+import mongoose from 'mongoose';
 
 const dropIndex = async () => {
     try {
@@ -18,11 +18,10 @@ const dropIndex = async () => {
         } else {
             console.log('Index "owner_1" not found. No action needed.');
         }
-
-        mongoose.connection.close();
     } catch (error) {
         console.error('Error:', error);
-        mongoose.connection.close();
+    } finally {
+        await mongoose.connection.close();
     }
 };
 

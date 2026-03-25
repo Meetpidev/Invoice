@@ -1,5 +1,5 @@
-require('dotenv').config();
-const mongoose = require('mongoose');
+import 'dotenv/config';
+import mongoose from 'mongoose';
 
 const checkIndexes = async () => {
     try {
@@ -7,10 +7,10 @@ const checkIndexes = async () => {
         const collection = mongoose.connection.collection('businessprofiles');
         const indexes = await collection.indexes();
         console.log('Final Indexes:', indexes.map(i => i.name));
-        mongoose.connection.close();
     } catch (error) {
         console.error(error);
-        mongoose.connection.close();
+    } finally {
+        await mongoose.connection.close();
     }
 };
 

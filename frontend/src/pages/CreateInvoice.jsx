@@ -19,6 +19,7 @@ const CreateInvoice = () => {
 
     const [invoice, setInvoice] = useState({
         invoiceNumber: '',
+        pnr: '', // Added PNR field
         customer: null, // Selected customer object
         items: [{ id: Date.now(), productId: '', description: '', quantity: 1, unitPrice: 0, total: 0 }],
         taxRate: 0,
@@ -198,16 +199,29 @@ const CreateInvoice = () => {
 
                 {/* Invoice Details */}
                 <div className="space-y-4">
-                    <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-1">Invoice Number</label>
-                        <Input
-                            icon={FiHash}
-                            type="text"
-                            className="bg-gray-50"
-                            placeholder="Auto-generated"
-                            value={invoice.invoiceNumber}
-                            onChange={(e) => setInvoice({ ...invoice, invoiceNumber: e.target.value })}
-                        />
+                    <div className="grid grid-cols-2 gap-4">
+                        <div>
+                            <label className="block text-sm font-medium text-gray-700 mb-1">Invoice Number</label>
+                            <Input
+                                icon={FiHash}
+                                type="text"
+                                className="bg-gray-50"
+                                placeholder="Auto-generated"
+                                value={invoice.invoiceNumber}
+                                onChange={(e) => setInvoice({ ...invoice, invoiceNumber: e.target.value })}
+                            />
+                        </div>
+                        <div>
+                            <label className="block text-sm font-medium text-gray-700 mb-1">PNR</label>
+                            <Input
+                                icon={FiHash}
+                                type="text"
+                                className="bg-gray-50"
+                                placeholder="Enter PNR"
+                                value={invoice.pnr || ''}
+                                onChange={(e) => setInvoice({ ...invoice, pnr: e.target.value })}
+                            />
+                        </div>
                     </div>
                     <div className="grid grid-cols-2 gap-4">
                         <div>

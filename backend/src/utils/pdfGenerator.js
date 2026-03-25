@@ -1,7 +1,7 @@
-const PDFDocument = require('pdfkit');
-const BusinessProfile = require('../models/BusinessProfile');
+import PDFDocument from 'pdfkit';
+import BusinessProfile from '../models/BusinessProfile.js';
 
-const generateInvoicePDF = async (invoice, res) => {
+export const generateInvoicePDF = async (invoice, res) => {
     try {
         const doc = new PDFDocument({ margin: 50 });
 
@@ -91,5 +91,3 @@ const generateInvoicePDF = async (invoice, res) => {
         res.status(500).send("Error generating PDF");
     }
 };
-
-module.exports = { generateInvoicePDF };

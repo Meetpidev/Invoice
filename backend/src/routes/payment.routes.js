@@ -1,10 +1,11 @@
-const express = require('express');
+import express from 'express';
+import Razorpay from 'razorpay';
+import crypto from 'crypto';
+import Payment from '../models/Payment.js';
+import User from '../models/User.js';
+import authMiddleware from '../middlewares/auth.middleware.js';
+
 const router = express.Router();
-const Razorpay = require('razorpay');
-const crypto = require('crypto');
-const Payment = require('../models/Payment');
-const User = require('../models/User');
-const authMiddleware = require('../middlewares/auth.middleware');
 
 const razorpay = new Razorpay({
     key_id: process.env.RAZORPAY_KEY_ID,
@@ -74,18 +75,19 @@ router.post('/verify', authMiddleware, async (req, res) => {
                 await payment.save();
 
                 // Update User Plan
-                const startDate = new Date();
+                const startDate = new Date().toISOString();
                 const endDate = new Date();
                 if (payment.planType === 'monthly') {
                     endDate.setMonth(endDate.getMonth() + 1);
                 } else if (payment.planType === 'yearly') {
                     endDate.setFullYear(endDate.getFullYear() + 1);
                 }
+                const endDateStr = endDate.toISOString();
 
                 await User.findByIdAndUpdate(req.user.userId, {
                     planType: payment.planType,
                     planStartDate: startDate,
-                    planEndDate: endDate,
+                    planEndDate: endDateStr,
                     isActivePlan: true
                 });
 
@@ -102,4 +104,4 @@ router.post('/verify', authMiddleware, async (req, res) => {
     }
 });
 
-module.exports = router;
+export default router;
