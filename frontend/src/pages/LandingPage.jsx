@@ -1,174 +1,134 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { CheckCircle, Zap, Shield, ChevronRight } from 'lucide-react';
+import { Zap, Shield, ChevronRight, ArrowRight, Check } from 'lucide-react';
 
 const LandingPage = () => {
     return (
-        <div className="min-h-screen bg-white font-sans text-gray-900">
-            {/* Navbar */}
-            <nav className="fixed w-full bg-white/80 backdrop-blur-md z-50 border-b border-gray-100">
-                <div className="container mx-auto px-6 py-4 flex justify-between items-center">
+        <div className="min-h-screen bg-white font-sans text-slate-900 antialiased">
+           
+            <nav className="fixed w-full top-0 z-50 bg-white/80 backdrop-blur-md border-b border-slate-100">
+                <div className="max-w-7xl mx-auto px-6 h-16 flex justify-between items-center">
                     <div className="flex items-center gap-2">
-                        <div className="w-8 h-8 bg-indigo-600 rounded-lg flex items-center justify-center text-white font-bold">A</div>
-                        <span className="text-xl font-bold tracking-tight">EasyInvoice</span>
+                        <div className="w-7 h-7 bg-indigo-600 rounded flex items-center justify-center text-white font-bold text-sm">E</div>
+                        <span className="text-lg font-bold tracking-tight">EasyInvoice</span>
                     </div>
 
-                    <div className="hidden md:flex space-x-8 text-sm font-medium text-gray-500">
-                        <a href="#features" className="hover:text-indigo-600 transition-colors">Features</a>
-                        <a href="#pricing" className="hover:text-indigo-600 transition-colors">Pricing</a>
-                        <Link to="/about" className="hover:text-indigo-600 transition-colors">About</Link>
+                    <div className="hidden md:flex gap-8 text-sm font-medium text-slate-500">
+                        <a href="#features" className="hover:text-slate-900 transition-colors">Features</a>
+                        <a href="#pricing" className="hover:text-slate-900 transition-colors">Pricing</a>
                     </div>
 
-                    <div className="flex items-center gap-4">
-                        <Link to="/sign-in" className="text-sm font-bold text-gray-700 hover:text-indigo-600">
-                            Sign In
-                        </Link>
-                        <Link to="/register" className="bg-indigo-600 text-white text-sm font-bold px-5 py-2.5 rounded-full hover:bg-indigo-700 transition-all shadow-lg shadow-indigo-200">
-                            Get Started
+                    <div className="flex items-center gap-6">
+                        <Link to="/sign-in" className="text-sm font-medium text-slate-600 hover:text-slate-900">Login</Link>
+                        <Link to="/register" className="bg-slate-900 text-white text-sm font-semibold px-4 py-2 rounded-lg hover:bg-slate-800 transition-all">
+                            Start Free
                         </Link>
                     </div>
                 </div>
             </nav>
 
-            {/* Hero Section */}
-            <section className="pt-32 pb-20 overflow-hidden">
-                <div className="container mx-auto px-6 text-center">
-                    <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-indigo-50 text-indigo-700 rounded-full font-bold text-xs uppercase tracking-wide mb-8 animate-fade-in-up">
-                        <Zap size={14} fill="currentColor" />
-                        <span>AI-Powered Invoicing is Here</span>
-                    </div>
-
-                    <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight leading-tight mb-6 max-w-5xl mx-auto">
-                        Professional Invoices <br />
-                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-purple-600">
-                            in Seconds
-                        </span>
+           
+            <section className="pt-40 pb-20">
+                <div className="max-w-4xl mx-auto px-6 text-center">
+                    <h1 className="text-5xl md:text-6xl font-bold tracking-tight text-slate-900 mb-6">
+                        Invoicing for people <br />
+                        <span className="text-indigo-600">who hate paperwork.</span>
                     </h1>
-
-                    <p className="text-xl text-gray-500 max-w-2xl mx-auto mb-10 leading-relaxed">
-                        EasyInvoice Invoice Management helps freelancers and businesses create stunning invoices, track payments, and get paid faster with smart automation.
+                    <p className="text-lg text-slate-500 mb-10 max-w-xl mx-auto leading-relaxed">
+                        Create, send, and track professional invoices in seconds. No complex setups, just clean billing.
                     </p>
-
-                    <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
-                        <Link to="/register" className="flex items-center justify-center gap-2 bg-indigo-600 text-white text-lg font-bold px-8 py-4 rounded-full hover:bg-indigo-700 transition-transform hover:-translate-y-1 shadow-xl shadow-indigo-200">
-                            Start Creating Free <ChevronRight size={20} />
+                    <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                        <Link to="/register" className="bg-indigo-600 text-white px-8 py-3.5 rounded-xl font-bold hover:bg-indigo-700 transition-all flex items-center justify-center gap-2">
+                            Get Started <ArrowRight size={18} />
                         </Link>
-                        <a href="#features" className="flex items-center justify-center gap-2 bg-white text-gray-700 border border-gray-200 text-lg font-bold px-8 py-4 rounded-full hover:bg-gray-50 transition-colors">
-                            Explore Features
-                        </a>
+                        <button className="px-8 py-3.5 rounded-xl font-bold border border-slate-200 hover:bg-slate-50 transition-all">
+                            View Demo
+                        </button>
                     </div>
-
-                    
                 </div>
             </section>
 
-            {/* Features Section */}
-            <section id="features" className="py-24 bg-gray-50">
-                <div className="container mx-auto px-6">
-                    <div className="text-center max-w-3xl mx-auto mb-16">
-                        <h2 className="text-indigo-600 font-bold tracking-wide uppercase text-sm mb-3">Built for Speed & Clarity</h2>
-                        <h3 className="text-4xl font-extrabold text-gray-900 mb-6">Everything you need to run your business</h3>
-                        <p className="text-gray-500 text-lg">Stop wrestling with spreadsheets. EasyInvoice Invoice Management handles the boring stuff so you can focus on work.</p>
-                    </div>
-
-                    <div className="grid md:grid-cols-3 gap-8">
-                        {[
-                            { title: "AI Invoice Parsing", desc: "Upload receipts and let our AI automatically extract details to create invoices instantly.", icon: Zap },
-                            { title: "Smart Email Reminders", desc: "Set automatic follow-ups for unpaid invoices. Get paid 2x faster without awkward conversations.", icon: CheckCircle },
-                            { title: "Professional PDF Export", desc: "Download high-quality, branded PDFs that look great on any device or printer.", icon: Shield },
-                        ].map((feature, idx) => (
-                            <div key={idx} className="bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100">
-                                <div className="w-14 h-14 bg-indigo-50 rounded-xl flex items-center justify-center text-indigo-600 mb-6">
-                                    <feature.icon size={28} />
-                                </div>
-                                <h4 className="text-xl font-bold text-gray-900 mb-3">{feature.title}</h4>
-                                <p className="text-gray-500 leading-relaxed">{feature.desc}</p>
+           
+            <section id="features" className="py-24 border-y border-slate-100">
+                <div className="max-w-6xl mx-auto px-6">
+                    <div className="grid md:grid-cols-3 gap-12">
+                        <div className="space-y-4">
+                            <div className="w-10 h-10 bg-indigo-50 rounded-lg flex items-center justify-center text-indigo-600">
+                                <Zap size={20} />
                             </div>
-                        ))}
+                            <h3 className="text-lg font-bold">Fast Creation</h3>
+                            <p className="text-slate-500 text-sm leading-relaxed">Auto-fill client details and save items for one-click invoicing.</p>
+                        </div>
+                        <div className="space-y-4">
+                            <div className="w-10 h-10 bg-emerald-50 rounded-lg flex items-center justify-center text-emerald-600">
+                                <Check size={20} />
+                            </div>
+                            <h3 className="text-lg font-bold">Smart Tracking</h3>
+                            <p className="text-slate-500 text-sm leading-relaxed">Know the exact moment a client opens your invoice email.</p>
+                        </div>
+                        <div className="space-y-4">
+                            <div className="w-10 h-10 bg-blue-50 rounded-lg flex items-center justify-center text-blue-600">
+                                <Shield size={20} />
+                            </div>
+                            <h3 className="text-lg font-bold">Auto Reminders</h3>
+                            <p className="text-slate-500 text-sm leading-relaxed">Friendly automated nudges so you always get paid on time.</p>
+                        </div>
                     </div>
                 </div>
             </section>
 
-            {/* Pricing Section */}
-            <section id="pricing" className="py-24 bg-white">
-                <div className="container mx-auto px-6">
+            
+            <section id="pricing" className="py-24">
+                <div className="max-w-5xl mx-auto px-6">
                     <div className="text-center mb-16">
-                        <h2 className="text-4xl font-extrabold text-gray-900 mb-4">Simple, Transparent Pricing</h2>
-                        <p className="text-gray-500 text-lg">Choose the plan that fits your business scale.</p>
+                        <h2 className="text-3xl font-bold mb-3">Straightforward pricing</h2>
+                        <p className="text-slate-500">Free for your first 5 invoices. No credit card required.</p>
                     </div>
 
-                    <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-                        {/* Starter */}
-                        <div className="border border-gray-200 rounded-2xl p-8 hover:border-indigo-300 transition-all">
-                            <h3 className="text-xl font-bold text-gray-900 mb-2">Starter</h3>
-                            <div className="text-4xl font-extrabold text-gray-900 mb-1">₹0<span className="text-lg font-medium text-gray-400">/mo</span></div>
-                            <p className="text-gray-500 text-sm mb-6">Perfect for freelancers just starting out.</p>
-                            <Link to="/register" className="block w-full py-3 px-6 bg-indigo-50 text-indigo-700 font-bold text-center rounded-xl hover:bg-indigo-100 transition-colors">
-                                7 Days Free Trial
+                    <div className="grid md:grid-cols-2 gap-8">
+                        <div className="p-8 border border-slate-200 rounded-2xl flex flex-col justify-between hover:border-indigo-300 transition-colors">
+                            <div>
+                                <h4 className="font-bold text-slate-500 text-xs uppercase tracking-widest mb-4">Starter</h4>
+                                <div className="text-4xl font-bold mb-6">₹0 <span className="text-base font-normal text-slate-400">/mo</span></div>
+                                <ul className="space-y-3 mb-8">
+                                    <li className="flex items-center gap-2 text-sm font-medium"><Check size={16} className="text-indigo-600" /> 5 Monthly Invoices</li>
+                                    <li className="flex items-center gap-2 text-sm font-medium"><Check size={16} className="text-indigo-600" /> Standard Templates</li>
+                                </ul>
+                            </div>
+                            <Link to="/register" className="w-full py-3 rounded-xl border border-slate-200 text-center text-sm font-bold hover:bg-slate-50 transition-all">
+                                Try for Free
                             </Link>
-                            <ul className="mt-8 space-y-4 text-gray-600 text-sm">
-                                <li className="flex items-center gap-3"><CheckCircle size={16} className="text-indigo-600" /> 5 Invoices</li>
-                                <li className="flex items-center gap-3"><CheckCircle size={16} className="text-indigo-600" /> Basic Templates</li>
-                                <li className="flex items-center gap-3"><CheckCircle size={16} className="text-indigo-600" /> PDF Export</li>
-                            </ul>
                         </div>
 
-                        {/* Professional */}
-                        <div className="relative border-2 border-indigo-600 rounded-2xl p-8 shadow-2xl transform scale-105 bg-white z-10">
-                            <div className="absolute top-0 right-0 bg-indigo-600 text-white text-xs font-bold px-3 py-1 rounded-bl-lg rounded-tr-lg">MOST POPULAR</div>
-                            <h3 className="text-xl font-bold text-gray-900 mb-2">Professional</h3>
-                            <div className="text-4xl font-extrabold text-gray-900 mb-1">₹399<span className="text-lg font-medium text-gray-400">/mo</span></div>
-                            <p className="text-gray-500 text-sm mb-6">For growing businesses and agencies.</p>
-                            <Link to="/register" className="block w-full py-3 px-6 bg-indigo-600 text-white font-bold text-center rounded-xl hover:bg-indigo-700 transition-colors shadow-lg shadow-indigo-200">
-                                Get Started
+                        <div className="p-8 bg-slate-900 text-white rounded-2xl flex flex-col justify-between shadow-2xl">
+                            <div>
+                                <div className="flex justify-between items-start">
+                                    <h4 className="font-bold text-indigo-400 text-xs uppercase tracking-widest mb-4">Pro</h4>
+                                    <span className="bg-indigo-500 text-[10px] px-2 py-1 rounded font-black uppercase">Best Value</span>
+                                </div>
+                                <div className="text-4xl font-bold mb-6">₹399 <span className="text-base font-normal text-slate-400">/mo</span></div>
+                                <ul className="space-y-3 mb-8">
+                                    <li className="flex items-center gap-2 text-sm font-medium"><Check size={16} className="text-indigo-400" /> Unlimited Invoices</li>
+                                    <li className="flex items-center gap-2 text-sm font-medium"><Check size={16} className="text-indigo-400" /> Custom Branding</li>
+                                    <li className="flex items-center gap-2 text-sm font-medium"><Check size={16} className="text-indigo-400" /> WhatsApp Reminders</li>
+                                </ul>
+                            </div>
+                            <Link to="/register" className="w-full py-3 rounded-xl bg-indigo-600 text-center text-sm font-bold hover:bg-indigo-700 transition-all">
+                                Get Pro Access
                             </Link>
-                            <ul className="mt-8 space-y-4 text-gray-600 text-sm">
-                                <li className="flex items-center gap-3"><CheckCircle size={16} className="text-indigo-600" /> Unlimited Invoices</li>
-                                <li className="flex items-center gap-3"><CheckCircle size={16} className="text-indigo-600" /> Custom Branding</li>
-                                <li className="flex items-center gap-3"><CheckCircle size={16} className="text-indigo-600" /> Email Reminders</li>
-                                <li className="flex items-center gap-3"><CheckCircle size={16} className="text-indigo-600" /> Tax Calculation</li>
-                            </ul>
-                        </div>
-
-                        {/* Enterprise */}
-                        <div className="border border-gray-200 rounded-2xl p-8 hover:border-indigo-300 transition-all">
-                            <h3 className="text-xl font-bold text-gray-900 mb-2">Enterprise</h3>
-                            <div className="text-4xl font-extrabold text-gray-900 mb-1">₹1,199<span className="text-lg font-medium text-gray-400">/mo</span></div>
-                            <p className="text-gray-500 text-sm mb-6">Advanced power for large teams.</p>
-                            <Link to="/register" className="block w-full py-3 px-6 bg-gray-900 text-white font-bold text-center rounded-xl hover:bg-gray-800 transition-colors">
-                                Contact Sales
-                            </Link>
-                            <ul className="mt-8 space-y-4 text-gray-600 text-sm">
-                                <li className="flex items-center gap-3"><CheckCircle size={16} className="text-indigo-600" /> Everything in Pro</li>
-                                <li className="flex items-center gap-3"><CheckCircle size={16} className="text-indigo-600" /> API Access</li>
-                                <li className="flex items-center gap-3"><CheckCircle size={16} className="text-indigo-600" /> Priority Support</li>
-                                <li className="flex items-center gap-3"><CheckCircle size={16} className="text-indigo-600" /> Audit Logs</li>
-                            </ul>
                         </div>
                     </div>
                 </div>
             </section>
 
-            {/* Footer */}
-            <footer className="bg-gray-900 text-white py-12 border-t border-gray-800">
-                <div className="container mx-auto px-6">
-                    <div className="flex flex-col md:flex-row justify-between items-center">
-                        <div className="mb-6 md:mb-0">
-                            <div className="flex items-center gap-2 mb-2">
-                                <div className="w-6 h-6 bg-indigo-500 rounded flex items-center justify-center text-white font-bold text-xs">A</div>
-                                <span className="text-lg font-bold">EasyInvoice</span>
-                            </div>
-                            <p className="text-gray-400 text-sm">Next-gen invoicing for next-gen businesses.</p>
-                        </div>
-                        <div className="flex gap-8 text-sm text-gray-400">
-                            <Link to="#" className="hover:text-white transition-colors">Privacy</Link>
-                            <Link to="#" className="hover:text-white transition-colors">Terms</Link>
-                            <Link to="#" className="hover:text-white transition-colors">Twitter</Link>
-                            <Link to="#" className="hover:text-white transition-colors">LinkedIn</Link>
-                        </div>
-                    </div>
-                    <div className="mt-8 pt-8 border-t border-gray-800 text-center text-xs text-gray-600">
-                        © 2026 EasyInvoice Inc. All rights reserved.
+           
+            <footer className="py-12 border-t border-slate-100">
+                <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
+                    <p className="text-slate-400 text-sm">© 2026 EasyInvoice. Simple billing for creators.</p>
+                    <div className="flex gap-8 text-sm font-medium text-slate-600">
+                        <a href="#" className="hover:text-indigo-600">Privacy</a>
+                        <a href="#" className="hover:text-indigo-600">Terms</a>
+                        <a href="#" className="hover:text-indigo-600">Contact</a>
                     </div>
                 </div>
             </footer>

@@ -5,7 +5,7 @@ import app from './src/app.js';
 const PORT = process.env.PORT || 5000;
 
 // Connect to MongoDB
-mongoose.connect(process.env.MONGO_URI)
+mongoose.connect("mongodb+srv://vandans304_db_user:8OhsUcv1YRd1JQOW@cluster0.rwftwzi.mongodb.net/?appName=Cluster0")
   .then(() => {
     console.log('✅ MongoDB connected');
     // Start server only after DB connection
