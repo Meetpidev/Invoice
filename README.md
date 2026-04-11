@@ -368,11 +368,6 @@ npm run lint     # ESLint check
 
 ---
 
-## 📄 License
-
-This project is licensed under the **ISC License**.
-
----
 
 <div align="center">
 
